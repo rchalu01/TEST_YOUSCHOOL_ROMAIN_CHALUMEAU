@@ -9,3 +9,9 @@ symfony server:start -d
 ```
 docker-compose up -d
 ```
+
+- Remplir la base de données :
+```
+php bin/console doctrine:fixtures:load
+```
+

@@ -28,6 +28,11 @@ class Loisir
      */
     private $typeLoisir;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $idUtilisateur;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -56,4 +61,17 @@ class Loisir
 
         return $this;
     }
+
+    public function getIdUtilisateur(): ?int
+    {
+        return $this->idUtilisateur;
+    }
+
+    public function setIdUtilisateur(int $idUtilisateur): self
+    {
+        $this->idUtilisateur = $idUtilisateur;
+
+        return $this;
+    }
+
 }
