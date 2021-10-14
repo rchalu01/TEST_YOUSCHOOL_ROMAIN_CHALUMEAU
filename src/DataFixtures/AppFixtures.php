@@ -37,9 +37,9 @@ class AppFixtures extends Fixture
         $manager->persist($user);
 
         $user = new Utilisateur();
-        $user->setNom("TRUMP");
+        $user->setNom("Duck");
         $user->setPrenom("Donald");
-        $user->setEmail("donal.trump@gmail.com");
+        $user->setEmail("donal.duck@gmail.com");
         $user->setRoles(['ROLE_USER']);
         $user->setNbLoisirs(0);
 
@@ -49,13 +49,13 @@ class AppFixtures extends Fixture
         $manager->persist($user);
 
         $user = new Utilisateur();
-        $user->setNom("MACRON");
-        $user->setPrenom("Emmanuel");
-        $user->setEmail("manu.macron@gmail.com");
+        $user->setNom("GABIN");
+        $user->setPrenom("Jean");
+        $user->setEmail("jean.gabin@gmail.com");
         $user->setRoles(['ROLE_USER']);
         $user->setNbLoisirs(0);
 
-        $password = $this->encoder->encodePassword($user, 'manu');
+        $password = $this->encoder->encodePassword($user, 'jean');
         $user->setPassword($password);
 
         $manager->persist($user);
