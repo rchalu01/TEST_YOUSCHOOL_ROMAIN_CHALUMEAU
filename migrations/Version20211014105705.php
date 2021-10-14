@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20211014081355 extends AbstractMigration
+final class Version20211014105705 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -23,7 +23,7 @@ final class Version20211014081355 extends AbstractMigration
         $this->addSql('CREATE SEQUENCE loisir_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE SEQUENCE type_loisir_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE SEQUENCE utilisateur_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('CREATE TABLE loisir (id INT NOT NULL, type_loisir_id INT NOT NULL, nom_loisir VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE loisir (id INT NOT NULL, type_loisir_id INT NOT NULL, nom_loisir VARCHAR(255) NOT NULL, id_utilisateur INT NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE INDEX IDX_CF3B2060BEDF8249 ON loisir (type_loisir_id)');
         $this->addSql('CREATE TABLE type_loisir (id INT NOT NULL, nom_type_loisir VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE TABLE utilisateur (id INT NOT NULL, email VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, nom VARCHAR(255) NOT NULL, prenom VARCHAR(255) NOT NULL, nb_loisirs INT DEFAULT NULL, PRIMARY KEY(id))');

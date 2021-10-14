@@ -99,7 +99,14 @@ class AppFixtures extends Fixture
         $loisir = new Loisir();
         $loisir->setNomLoisir("Badminton");
         $loisir->setTypeLoisir($typeLoisirSport);
-        $loisir->setIdUtilisateur(10);
+        $loisir->setIdUtilisateur(1);
+        
+        $manager->persist($loisir);
+
+        $loisir = new Loisir();
+        $loisir->setNomLoisir("Star Trek");
+        $loisir->setTypeLoisir($typeLoisirCinema);
+        $loisir->setIdUtilisateur(1);
         
         $manager->persist($loisir);
 
