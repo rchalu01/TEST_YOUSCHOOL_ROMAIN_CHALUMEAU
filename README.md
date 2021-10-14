@@ -5,3 +5,7 @@
 symfony server:start -d
 ```
 
+- Démarrer la base de données:
+```
+docker-compose up -d
+```
