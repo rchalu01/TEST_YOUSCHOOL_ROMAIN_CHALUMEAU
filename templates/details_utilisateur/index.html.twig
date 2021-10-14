@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h2>Bienvenue {{utilisateur.email}} !</h2>
+<a href="{{ path('ajouter_loisir') }}">Ajouter un loisir</a>
+{% for typeLoisir in typeLoisirs %}
+			<h3>
+				{{typeLoisir.nomTypeLoisir}}
+			</h3>
+			{% for loisir in loisirs %}
+				{% if loisir.typeLoisir == typeLoisir %}
+					<p>{{loisir.nomLoisir}}</p>
+				{% endif %}
+			{% endfor %}
+		{% endfor %}
+{% endblock %}

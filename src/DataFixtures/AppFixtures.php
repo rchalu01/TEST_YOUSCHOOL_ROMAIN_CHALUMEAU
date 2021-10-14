@@ -2,9 +2,12 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Loisir;
+use App\Entity\TypeLoisir;
 use App\Entity\Utilisateur;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Symfony\Component\PropertyInfo\Type;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
@@ -16,9 +19,11 @@ class AppFixtures extends Fixture
     {
         $this->encoder = $encoder;
     }
-    
+
     public function load(ObjectManager $manager)
     {
+        /* Ajout des utilisateurs */
+
         $user = new Utilisateur();
         $user->setNom("CHALUMEAU");
         $user->setPrenom("Romain");
@@ -66,6 +71,37 @@ class AppFixtures extends Fixture
         $user->setPassword($password);
 
         $manager->persist($user);
+
+        /* Ajout des types de loisirs */
+
+        $typeLoisirSport = new TypeLoisir();
+        $typeLoisirSport->setNomTypeLoisir("Sport");
+
+        $manager->persist($typeLoisirSport);
+
+        $typeLoisirCinema = new TypeLoisir();
+        $typeLoisirCinema->setNomTypeLoisir("Cinéma");
+
+        $manager->persist($typeLoisirCinema);
+
+        $typeLoisirLecture = new TypeLoisir();
+        $typeLoisirLecture->setNomTypeLoisir("Lecture");
+
+        $manager->persist($typeLoisirLecture);
+
+        $typeLoisirApprentissage = new TypeLoisir();
+        $typeLoisirApprentissage->setNomTypeLoisir("Apprentissage");
+
+        $manager->persist($typeLoisirApprentissage);
+
+        /* Ajout des loisirs des utilisateurs */
+
+        $loisir = new Loisir();
+        $loisir->setNomLoisir("Badminton");
+        $loisir->setTypeLoisir($typeLoisirSport);
+        $loisir->setIdUtilisateur(10);
+        
+        $manager->persist($loisir);
 
         $manager->flush();
     }
